@@ -804,8 +804,12 @@ End Sub
 
 Public Sub ChipLoad(FileName As String, i As Integer)
 '指定されたファイル名でマップチップをロードする
-        
-    Chip(i).Picture = LoadPicture(FileName)
+    If Right(FileName, 4) = ".png" Or Right(FileName, 4) = ".PNG" Then
+        Chip(i).Picture = LoadPNG(FileName)
+    Else
+        Chip(i).Picture = LoadPicture(FileName)
+    End If
+    
     ChipBarShow (i)
     ToolChipShow
     If (i = 0 Or i = 2) Then MapShow

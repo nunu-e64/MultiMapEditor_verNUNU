@@ -141,12 +141,12 @@ Begin VB.MDIForm MainForm
          BeginProperty Panel2 {8E3867AB-8586-11D1-B16A-00C0F0283628} 
             Style           =   6
             Alignment       =   1
-            TextSave        =   "2014/09/07"
+            TextSave        =   "2015/01/15"
          EndProperty
          BeginProperty Panel3 {8E3867AB-8586-11D1-B16A-00C0F0283628} 
             Style           =   5
             Alignment       =   1
-            TextSave        =   "12:47"
+            TextSave        =   "3:48"
          EndProperty
       EndProperty
    End
@@ -333,7 +333,7 @@ Private Sub MDIForm_Load()
     
     '初期表示位置を画面上のセンターへ移動
     If WindowState = 0 Then
-        Move (Screen.Width - Me.Width) / 2, (Screen.Height - Me.Height) / 2
+        Move (Screen.width - Me.width) / 2, (Screen.height - Me.height) / 2
     End If
 
     'Me.Caption = Me.Caption & Space(2) & "ver1.00"
@@ -402,35 +402,35 @@ End Sub
 Private Sub ChipReSize()
 'フォーム上のコントロールのサイズ変更
 
-    Left_Bar.Width = (20 + 32 * 8 * a) * Screen.TwipsPerPixelX
+    Left_Bar.width = (20 + 32 * 8 * a) * Screen.TwipsPerPixelX
     
     'チップ用のスクロールバーのサイズ変更
     With ChipBar
         .Top = 0
         .Left = 0
-        .Height = Left_Bar.ScaleHeight
-        .Width = 16
+        .height = Left_Bar.ScaleHeight
+        .width = 16
         .Max = ((32 * 64) - Left_Bar.ScaleHeight) \ 32
     End With
     
     'チップ用のピクチャボックスのサイズ変更
     With ShowChip(0)
         .Top = 0
-        .Left = ChipBar.Width
-        .Width = 32 * 8
-        .Height = 32 * 32
+        .Left = ChipBar.width
+        .width = 32 * 8
+        .height = 32 * 32
     End With
     With ShowChip(1)
         .Top = 0
-        .Left = ChipBar.Width
-        .Width = 32 * 8
-        .Height = 32 * 32
+        .Left = ChipBar.width
+        .width = 32 * 8
+        .height = 32 * 32
     End With
     With ShowChip(2)
         .Top = 0
-        .Left = ChipBar.Width
-        .Width = 32 * 8
-        .Height = 32 * 32
+        .Left = ChipBar.width
+        .width = 32 * 8
+        .height = 32 * 32
     End With
     
 End Sub
@@ -614,7 +614,7 @@ Public Sub Menu004_Click(Index As Integer)
     With CommonDialog1
         .DialogTitle = IIf(Index = 0, "下層マップチップの読込み", "上層マップチップの読込み")
         .FileName = ""
-        .Filter = "Pictures(*.bmp;*.gif)|*.bmp;*.gif"
+        .Filter = "画像ファイル(*.*)|*.*"
         .ShowOpen   'ﾌｧｲﾙｵｰﾌﾟﾝ用のﾀﾞｲｱﾛｸﾞを開く
     End With
     
@@ -627,7 +627,7 @@ Public Sub Menu004_Click(Index As Integer)
             With CommonDialog1
                 .DialogTitle = "上層マップチップのマスクの読込み"
                 .FileName = ""
-                .Filter = "Pictures(*.bmp;*.gif)|*.bmp;*.gif"
+                .Filter = "画像ファイル(*.*)|*.*"
                 .ShowOpen   'ﾌｧｲﾙｵｰﾌﾟﾝ用のﾀﾞｲｱﾛｸﾞを開く
             End With
             If Err <> cdlCancel Then    ' ﾕｰｻﾞｰが[ｷｬﾝｾﾙ]を選択しました。 32755=ｷｬﾝｾﾙｺｰﾄﾞ
@@ -664,8 +664,8 @@ End Sub
 Public Sub Menu007_Click()
 'マップファイルの保存
     
-    Dim Ret As Boolean
-    Ret = MapSave
+    Dim ret As Boolean
+    ret = MapSave
 
 End Sub
 
